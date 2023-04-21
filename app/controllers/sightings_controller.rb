@@ -31,7 +31,7 @@ class SightingsController < ApplicationController
         sighting = Sighting.find(params[:id])
         sighting.update(sighting_params)
         if sighting.valid?
-            render json:sighting
+            render json: sighting
         else
             render json: sighting.errors
         end
@@ -39,11 +39,8 @@ class SightingsController < ApplicationController
 
    
 
-
-
-
-
+ private
     def sighting_params
-        params.require(:sighting).permit(:longitude, :latitude, :date, :animalid)
+        params.require(:sighting).permit(:longitude, :latitude, :date, :animal_id)
     end
 end
